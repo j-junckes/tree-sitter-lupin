@@ -1,0 +1,13 @@
+module main;
+
+use std::io::println;
+
+pub fn main() !void {
+  let a: u32 = 1;
+  let b = 2u32;
+  let c = 3;
+  let d = a + b + c;
+
+  println("Hello, world!");
+  println("The sum of {} + {} + {} is {}", a, b, c, d);
+}
