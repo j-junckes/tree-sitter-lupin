@@ -96,6 +96,11 @@
     }
   },
   {
+    "type": "float_type",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "function_call",
     "named": true,
     "fields": {},
@@ -146,6 +151,11 @@
     }
   },
   {
+    "type": "integer_type",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "module_declaration",
     "named": true,
     "fields": {},
@@ -163,7 +173,21 @@
   {
     "type": "number_literal",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "float_type",
+          "named": true
+        },
+        {
+          "type": "integer_type",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "parameter",

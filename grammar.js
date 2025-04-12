@@ -65,6 +65,20 @@ module.exports = grammar({
         "cstring",
         $.qualified_name,
       ),
+    integer_type: ($) =>
+      choice(
+        "u8",
+        "u16",
+        "u32",
+        "u64",
+        "u128",
+        "i8",
+        "i16",
+        "i32",
+        "i64",
+        "i128",
+      ),
+    float_type: ($) => choice("f32", "f64"),
     block: ($) => seq("{", repeat($.statement), "}"),
     statement: ($) =>
       choice(
@@ -109,7 +123,12 @@ module.exports = grammar({
       ),
     identifier: ($) => /[a-zA-Z_][a-zA-Z0-9_]*/,
     number_literal: ($) =>
-      choice(/\d+/, /\d+\.\d+/, /\d+[ui]\d+/, /\d+\.\d+[f]\d+/),
+      choice(
+        /\d+/,
+        /\d+\.\d+/,
+        seq(/\d+/, $.integer_type),
+        seq(/\d+\.\d+/, $.float_type),
+      ),
     string_literal: ($) =>
       seq(
         '"',
